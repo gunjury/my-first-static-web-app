@@ -6,8 +6,11 @@ function App() {
 
   function getData(){
   fetch(`https://greetapi2-yg-as.azurewebsites.net/greet/hi?name=${name}`)
-  .then(res => res.json())
-  .then(d => setData(d));
+  .then(res => res.text())
+  .then(d => {
+    console.log(`Data fetched: ${d}`)
+    setData(d)
+  });
   }
   
   const value = 'World';
@@ -15,7 +18,7 @@ function App() {
   return <>
     <div>Hello {value}</div>
     <label for="name">Name</label>
-    <input name="Name" onChange={e => setName(e.target.value)}>
+    <input name="Name" onChange={e => setName(e.target.value)} />
     <button onClick={getData}>Call api</button>
     
     <div> {data} </div>
