@@ -4,7 +4,7 @@ function App() {
   const value = 'World';
   return <>
     <div>Hello {value}</div>
-  <a href="#">Call api</a>
+  <button onClick={e => alert('foo')}>Call api</button>
     </>;
 }
 
